@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FCA Anti-Money Laundering Knowledge Test — City Mortgage Solutions Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#003057;--navy2:#004a87;--gold:#c9972b;--gold2:#f0c050;--offwhite:#f4f1eb;--cream:#faf8f3;--text:#1a1a2e;--muted:#6b7280;--correct:#166534;--correct-bg:#dcfce7;--wrong:#991b1b;--wrong-bg:#fee2e2;--border:#d4cfc5}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Source Sans 3',sans-serif;background:var(--offwhite);color:var(--text);min-height:100vh}
+  header{background:var(--navy);position:relative;overflow:hidden}
+  header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 80px)}
+  .header-inner{max-width:860px;margin:0 auto;padding:36px 32px 30px;position:relative}
+  .company-tag{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,44px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px}
+  h1 span{color:var(--gold2)}
+  .header-meta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:16px}
+  .badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);font-size:12px;font-weight:600;letter-spacing:1px;padding:4px 12px;border-radius:20px}
+  .master-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);text-decoration:none;border:1px solid rgba(201,151,43,.4);padding:5px 14px;border-radius:20px;transition:all .2s}
+  .master-link:hover{background:rgba(201,151,43,.15);border-color:var(--gold2)}
+  main{max-width:860px;margin:0 auto;padding:32px 24px 60px}
+  .name-card{background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .name-card label{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;white-space:nowrap}
+  .name-card label span{color:var(--gold2)}
+  .name-select-wrap{flex:1;min-width:220px}
+  .name-select-wrap select{width:100%;padding:10px 36px 10px 16px;font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;background:rgba(255,255,255,.1);border:2px solid rgba(201,151,43,.6);border-radius:8px;color:#fff;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23f0c050' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .name-select-wrap select option{background:var(--navy);color:#fff}
+  .questions-wrap{display:flex;flex-direction:column;gap:16px}
+  .q-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:22px 24px 20px;position:relative;transition:box-shadow .2s}
+  .q-card:hover{box-shadow:0 4px 20px rgba(0,48,87,.08)}
+  .q-card.correct{border-color:var(--correct);background:var(--correct-bg)}
+  .q-card.wrong{border-color:var(--wrong);background:var(--wrong-bg)}
+  .q-number{position:absolute;top:-1px;left:22px;background:var(--navy);color:#fff;font-family:'Playfair Display',serif;font-size:12px;font-weight:700;padding:2px 10px 3px;border-radius:0 0 8px 8px}
+  .q-card.correct .q-number{background:var(--correct)}
+  .q-card.wrong .q-number{background:var(--wrong)}
+  .q-text{font-size:15px;font-weight:600;line-height:1.5;margin:12px 0 14px;padding-top:4px}
+  .q-select-wrap select{width:100%;padding:10px 40px 10px 14px;font-family:'Source Sans 3',sans-serif;font-size:14px;background:#fff;border:2px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23003057' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .q-card.correct .q-select-wrap select{border-color:var(--correct)}
+  .q-card.wrong .q-select-wrap select{border-color:var(--wrong)}
+  .q-feedback{display:none;margin-top:12px;font-size:13px;line-height:1.5;padding:10px 14px;border-radius:7px}
+  .q-card.correct .q-feedback{display:block;background:rgba(22,101,52,.08);color:var(--correct);border-left:3px solid var(--correct)}
+  .q-card.wrong .q-feedback{display:block;background:rgba(153,27,27,.08);color:var(--wrong);border-left:3px solid var(--wrong)}
+  .submit-row{margin-top:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .btn-submit{background:var(--navy);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:700;padding:13px 36px;border:none;border-radius:9px;cursor:pointer;transition:background .2s,transform .1s}
+  .btn-submit:hover{background:var(--navy2);transform:translateY(-1px)}
+  .btn-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  .btn-reset{background:transparent;color:var(--muted);font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border:2px solid var(--border);border-radius:9px;cursor:pointer;transition:all .2s;display:none}
+  .btn-reset:hover{border-color:var(--navy);color:var(--navy)}
+  .btn-reset.visible{display:block}
+  .score-box{display:none;margin-top:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,48,87,.15)}
+  .score-box.visible{display:block}
+  .score-header{background:var(--navy);padding:24px 28px;display:flex;align-items:center;gap:20px}
+  .score-circle{width:80px;height:80px;border-radius:50%;border:4px solid var(--gold2);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+  .score-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--gold2);line-height:1}
+  .score-denom{font-size:11px;color:rgba(255,255,255,.5);font-weight:600}
+  .score-info{flex:1}
+  .score-label{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
+  .score-name{font-size:14px;color:rgba(255,255,255,.65)}
+  .score-pct{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold2);text-align:right}
+  .score-body{background:var(--cream);padding:20px 28px;border:1px solid var(--border);border-top:none;border-radius:0 0 14px 14px}
+  .score-bar-bg{height:10px;background:var(--border);border-radius:5px;overflow:hidden;margin:8px 0 4px}
+  .score-bar-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--navy),var(--navy2));transition:width .8s cubic-bezier(.4,0,.2,1)}
+  .score-breakdown{display:flex;gap:10px;font-size:13px;font-weight:600}
+  .score-correct-text{color:var(--correct)}
+  .score-wrong-text{color:var(--wrong)}
+  .score-verdict{margin-top:14px;padding:12px 16px;border-radius:8px;font-size:14px;font-weight:600;line-height:1.5}
+  .verdict-pass{background:var(--correct-bg);color:var(--correct)}
+  .verdict-fail{background:var(--wrong-bg);color:var(--wrong)}
+  .saved-notice{margin-top:12px;padding:10px 14px;background:#eff6ff;border:1px solid #3b82f6;border-radius:8px;font-size:13px;color:#1e40af;font-weight:600;display:none}
+  .warn{margin-top:10px;padding:10px 14px;background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;font-size:13px;color:#92400e;display:none}
+  .warn.visible{display:block}
+  footer{max-width:860px;margin:0 auto;padding:20px 24px 32px;font-size:12px;color:var(--muted);border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="company-tag">City Mortgage Solutions Group</div>
+    <h1>FCA Anti-Money Laundering<br><span>Knowledge Test</span></h1>
+    <div class="header-meta">
+      <span class="badge">Annual Testing 2026</span>
+      <span class="badge">10 Questions</span>
+      <span class="badge">Multiple Choice</span>
+    </div>
+    <a href="AML_Master.html" class="master-link">&#9654; View Master Results Sheet</a>
+  </div>
+</header>
+
+<main>
+  <div class="name-card">
+    <label><span>&#9654;</span> Candidate Name</label>
+    <div class="name-select-wrap">
+            <select id="candidate-name">
+        <option value="">Select your name...</option>
+        <option value="Gary Gavrilovic">Gary Gavrilovic</option>
+        <option value="Gary Cox">Gary Cox</option>
+        <option value="Stuart Grimmer">Stuart Grimmer</option>
+        <option value="Lucy Wise">Lucy Wise</option>
+        <option value="Roy Archer">Roy Archer</option>
+        <option value="Martin Hunt">Martin Hunt</option>
+        <option value="Priyesh Dhanak">Priyesh Dhanak</option>
+        <option value="Kulvir Biriah">Kulvir Biriah</option>
+        <option value="Lisa Lee">Lisa Lee</option>
+        <option value="Bhupinder Ahir">Bhupinder Ahir</option>
+        <option value="Glenn Ratcliff">Glenn Ratcliff</option>
+        <option value="Helen Jones">Helen Jones</option>
+        <option value="Leanne Trotman">Leanne Trotman</option>
+        <option value="Stephen Wright">Stephen Wright</option>
+        <option value="Nazir Kaker">Nazir Kaker</option>
+        <option value="Ganga Pillai">Ganga Pillai</option>
+        <option value="Sharon Levine">Sharon Levine</option>
+        <option value="Ozge Kalay">Ozge Kalay</option>
+        <option value="Greg Potts">Greg Potts</option>
+        <option value="Jemma Lewis">Jemma Lewis</option>
+        <option value="Chris Gallagher">Chris Gallagher</option>
+        <option value="Gary Hazeltine">Gary Hazeltine</option>
+        <option value="Tracy Bowdidge">Tracy Bowdidge</option>
+        <option value="Sacchin Ahir">Sacchin Ahir</option>
+        <option value="Zoe Tate">Zoe Tate</option>
+        <option value="Gabriela Brito">Gabriela Brito</option>
+        <option value="Shane Henstock">Shane Henstock</option>
+        <option value="Ben Henstock">Ben Henstock</option>
+        <option value="Joe Whittaker">Joe Whittaker</option>
+        <option value="David Turner">David Turner</option>
+        <option value="Adam Stiles">Adam Stiles</option>
+        <option value="Ross Vasani">Ross Vasani</option>
+        <option value="Matthew Turner">Matthew Turner</option>
+        <option value="Simon Wilson">Simon Wilson</option>
+              <option value="Allison George">Allison George</option>
+              <option value="Lauren Benham">Lauren Benham</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="questions-wrap" id="questions-wrap"></div>
+
+  <div class="warn" id="warn-msg">Please select your name and answer all 10 questions before submitting.</div>
+
+  <div class="submit-row">
+    <button class="btn-submit" id="btn-submit">Submit &amp; See Results</button>
+    <button class="btn-reset" id="btn-reset">Start Again</button>
+  </div>
+
+  <div class="score-box" id="score-box">
+    <div class="score-header">
+      <div class="score-circle">
+        <div class="score-num" id="sc-num">0</div>
+        <div class="score-denom">/10</div>
+      </div>
+      <div class="score-info">
+        <div class="score-label" id="sc-label">Your Result</div>
+        <div class="score-name" id="sc-name"></div>
+      </div>
+      <div class="score-pct" id="sc-pct">0%</div>
+    </div>
+    <div class="score-body">
+      <div style="font-size:13px;font-weight:600;color:var(--muted)">Score</div>
+      <div class="score-bar-bg"><div class="score-bar-fill" id="sc-bar" style="width:0%"></div></div>
+      <div class="score-breakdown">
+        <span class="score-correct-text" id="sc-correct"></span>
+        <span>&nbsp;|&nbsp;</span>
+        <span class="score-wrong-text" id="sc-wrong"></span>
+      </div>
+      <div class="score-verdict" id="sc-verdict"></div>
+      <div class="saved-notice" id="saved-notice">&#10003; Your result has been saved to the Master Results Sheet.</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Based on the MLRs 2017, POCA 2002 &amp; FCA AML Guidance &nbsp;|&nbsp; City Mortgage Solutions Group &nbsp;|&nbsp; Annual Testing 2026
+</footer>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "1. Which piece of UK legislation is the primary framework for anti-money laundering obligations on financial firms?",
+    opts: [
+      "A) The Financial Services and Markets Act 2000.",
+      "B) The Money Laundering, Terrorist Financing and Transfer of Funds Regulations 2017 (MLRs).",
+      "C) The Proceeds of Crime Act 2002 only.",
+      "D) The Bribery Act 2010."
+    ],
+    answer: 1,
+    explanation: "The Money Laundering, Terrorist Financing and Transfer of Funds Regulations 2017 (MLRs) are the primary AML framework for UK financial firms, supplemented by the Proceeds of Crime Act 2002 and the Terrorism Act 2000."
+  },
+  {
+    q: "2. What are the three stages of the money laundering process in the correct order?",
+    opts: [
+      "A) Integration, placement, layering.",
+      "B) Layering, integration, placement.",
+      "C) Placement, layering, integration.",
+      "D) Concealment, transfer, withdrawal."
+    ],
+    answer: 2,
+    explanation: "The three stages are: Placement (introducing criminal proceeds into the financial system), Layering (disguising the trail through complex transactions), and Integration (re-entering funds into the legitimate economy)."
+  },
+  {
+    q: "3. Under the MLRs, which of the following is a 'relevant person' required to apply anti-money laundering controls?",
+    opts: [
+      "A) Any business that accepts cash payments.",
+      "B) Credit institutions, financial institutions, and certain professional firms such as accountants and solicitors.",
+      "C) Only banks and building societies.",
+      "D) Only firms with annual turnover exceeding GBP 10 million."
+    ],
+    answer: 1,
+    explanation: "Relevant persons under the MLRs include credit institutions, financial institutions, auditors, insolvency practitioners, external accountants, tax advisers, independent legal professionals, trust or company service providers, estate agents, and high-value dealers."
+  },
+  {
+    q: "4. What does Customer Due Diligence (CDD) require firms to establish?",
+    opts: [
+      "A) The customer's credit score and affordability.",
+      "B) The identity of the customer, the beneficial owner, and the purpose of the business relationship.",
+      "C) The customer's investment experience and attitude to risk.",
+      "D) The customer's employment history and tax returns."
+    ],
+    answer: 1,
+    explanation: "CDD requires firms to identify and verify the customer's identity, identify the beneficial owner (those owning or controlling 25%+ of the entity), and understand the nature and purpose of the business relationship."
+  },
+  {
+    q: "5. Under the MLRs, when is Enhanced Due Diligence (EDD) required?",
+    opts: [
+      "A) For all new customers regardless of risk.",
+      "B) Only when the customer is a Politically Exposed Person (PEP).",
+      "C) In higher-risk situations, including transactions with high-risk third countries, PEPs, and complex or unusual transactions.",
+      "D) Only when a Suspicious Activity Report has already been filed."
+    ],
+    answer: 2,
+    explanation: "EDD must be applied in higher-risk situations including: business relationships or transactions involving high-risk third countries, customers who are PEPs, and any transaction that is complex, unusually large, or has no apparent economic purpose."
+  },
+  {
+    q: "6. Who within a firm is responsible for receiving internal Suspicious Activity Reports (SARs) and deciding whether to submit them to the National Crime Agency (NCA)?",
+    opts: [
+      "A) The Chief Executive Officer.",
+      "B) The Money Laundering Reporting Officer (MLRO).",
+      "C) The Chief Risk Officer.",
+      "D) The Board of Directors collectively."
+    ],
+    answer: 1,
+    explanation: "The Money Laundering Reporting Officer (MLRO) is the designated person responsible for receiving internal SARs, assessing them, and determining whether to submit a SAR to the National Crime Agency (NCA)."
+  },
+  {
+    q: "7. What is 'tipping off' in the context of money laundering?",
+    opts: [
+      "A) Reporting a suspicious transaction to the FCA before the NCA.",
+      "B) Sharing AML training materials with staff before a regulatory visit.",
+      "C) Disclosing to a customer or third party that a SAR has been filed or an investigation is underway, potentially prejudicing it.",
+      "D) Providing a financial incentive to a customer to open an account."
+    ],
+    answer: 2,
+    explanation: "Tipping off is a criminal offence under POCA 2002. It involves disclosing to the subject of a SAR, or any other person, that a report has been made or that a money laundering investigation is being considered, in a way likely to prejudice that investigation."
+  },
+  {
+    q: "8. Under the Proceeds of Crime Act 2002, what is the maximum prison sentence for the principal money laundering offences?",
+    opts: [
+      "A) 5 years.",
+      "B) 10 years.",
+      "C) 14 years.",
+      "D) 20 years."
+    ],
+    answer: 2,
+    explanation: "The principal money laundering offences under the Proceeds of Crime Act 2002 (sections 327-329) carry a maximum sentence of 14 years imprisonment, an unlimited fine, or both."
+  },
+  {
+    q: "9. What is a Politically Exposed Person (PEP) for the purposes of AML rules?",
+    opts: [
+      "A) Any customer who has made a political donation.",
+      "B) An individual who is, or has been, entrusted with a prominent public function, and their close associates and family members.",
+      "C) A customer who is a registered voter in a foreign country.",
+      "D) Any non-UK national opening a bank account."
+    ],
+    answer: 1,
+    explanation: "A PEP is an individual entrusted with a prominent public function, such as a head of state, government minister, senior judicial official, or senior military official, along with their immediate family members and known close associates."
+  },
+  {
+    q: "10. Under FCA guidance, what is the risk-based approach to AML compliance?",
+    opts: [
+      "A) Applying the same level of controls to all customers and transactions equally.",
+      "B) Focusing AML resources and controls proportionately on areas of highest money laundering risk.",
+      "C) Only applying AML controls when a customer appears on a sanctions list.",
+      "D) Delegating all AML responsibilities to a third-party compliance provider."
+    ],
+    answer: 1,
+    explanation: "The risk-based approach means firms must identify, assess, and understand their money laundering and terrorist financing risks, then apply controls proportionate to those risks, focusing enhanced scrutiny where risk is highest."
+  }
+];
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxIEbulu_REeA_heKG9HKGB7Zr83KN5ecL2kkt-OXbtAQNVAWGvL0HPX-GbIUQutmcz/exec'
+const TEST_NAME = 'FCA Anti-Money Laundering';
+const STORAGE_KEY = 'cmsg_aml_results_2026';
+function loadResults() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; } }
+function saveResult(e) {
+  // Save locally
+  const all = loadResults();
+  all.push(e);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  // Send to Google Sheet
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...e, test: TEST_NAME })
+  }).catch(err => console.log('Sheet sync failed:', err));
+}
+
+const wrap = document.getElementById('questions-wrap');
+const selects = [];
+QUESTIONS.forEach((q, i) => {
+  const card = document.createElement('div'); card.className = 'q-card'; card.id = `card-${i}`;
+  const num = document.createElement('div'); num.className = 'q-number'; num.textContent = `Q${i + 1}`;
+  const text = document.createElement('div'); text.className = 'q-text'; text.textContent = q.q;
+  const sw = document.createElement('div'); sw.className = 'q-select-wrap';
+  const sel = document.createElement('select');
+  const blank = document.createElement('option'); blank.value = ''; blank.textContent = 'Select your answer...'; sel.appendChild(blank);
+  q.opts.forEach((o, j) => { const opt = document.createElement('option'); opt.value = j; opt.textContent = o; sel.appendChild(opt); });
+  sw.appendChild(sel); selects.push(sel);
+  const fb = document.createElement('div'); fb.className = 'q-feedback'; fb.id = `fb-${i}`;
+  card.appendChild(num); card.appendChild(text); card.appendChild(sw); card.appendChild(fb);
+  wrap.appendChild(card);
+});
+
+document.getElementById('btn-submit').addEventListener('click', () => {
+  const name = document.getElementById('candidate-name').value;
+  const allAnswered = selects.every(s => s.value !== '');
+  const warn = document.getElementById('warn-msg');
+  if (!name || !allAnswered) { warn.classList.add('visible'); return; }
+  warn.classList.remove('visible');
+  let correct = 0;
+  const answerLog = [];
+  QUESTIONS.forEach((q, i) => {
+    const card = document.getElementById(`card-${i}`);
+    const fb = document.getElementById(`fb-${i}`);
+    const chosen = parseInt(selects[i].value);
+    selects[i].disabled = true;
+    const ok = chosen === q.answer;
+    if (ok) correct++;
+    card.classList.add(ok ? 'correct' : 'wrong');
+    fb.innerHTML = ok
+      ? `<strong>Correct!</strong> ${q.explanation}`
+      : `<strong>Incorrect.</strong> The correct answer is <strong>${q.opts[q.answer]}</strong>. ${q.explanation}`;
+    answerLog.push({ q: i + 1, correct: ok, chosen, correctAnswer: q.answer });
+  });
+  document.getElementById('candidate-name').disabled = true;
+  const pct = Math.round((correct / 10) * 100);
+  const passed = pct >= 80;
+  const now = new Date();
+  const timestamp = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  saveResult({ name, score: correct, pct, passed, timestamp, answers: answerLog });
+  document.getElementById('sc-num').textContent = correct;
+  document.getElementById('sc-pct').textContent = pct + '%';
+  document.getElementById('sc-name').textContent = 'Candidate: ' + name;
+  document.getElementById('sc-label').textContent = passed ? 'Test Passed' : 'Test Failed';
+  document.getElementById('sc-correct').textContent = correct + ' correct';
+  document.getElementById('sc-wrong').textContent = (10 - correct) + ' incorrect';
+  setTimeout(() => { document.getElementById('sc-bar').style.width = pct + '%'; }, 100);
+  const verdict = document.getElementById('sc-verdict');
+  verdict.className = 'score-verdict ' + (passed ? 'verdict-pass' : 'verdict-fail');
+  verdict.innerHTML = passed
+    ? `Well done, ${name.split(' ')[0]}! You scored ${correct}/10 (${pct}%) and have passed the Annual FCA Anti-Money Laundering Knowledge Test 2026.`
+    : `${name.split(' ')[0]}, you scored ${correct}/10 (${pct}%). A score of 80% or above is required to pass. Please review the highlighted questions and retake the test.`;
+  document.getElementById('saved-notice').style.display = 'block';
+  document.getElementById('score-box').classList.add('visible');
+  document.getElementById('btn-submit').disabled = true;
+  document.getElementById('btn-reset').classList.add('visible');
+  document.getElementById('score-box').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  document.getElementById('candidate-name').value = '';
+  document.getElementById('candidate-name').disabled = false;
+  selects.forEach((s, i) => {
+    s.value = ''; s.disabled = false;
+    const card = document.getElementById(`card-${i}`);
+    card.classList.remove('correct', 'wrong');
+    document.getElementById(`fb-${i}`).innerHTML = '';
+  });
+  document.getElementById('sc-bar').style.width = '0%';
+  document.getElementById('score-box').classList.remove('visible');
+  document.getElementById('saved-notice').style.display = 'none';
+  document.getElementById('btn-reset').classList.remove('visible');
+  document.getElementById('btn-submit').disabled = false;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>

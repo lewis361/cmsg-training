@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Results Sheet — Royal London Personal Menu Plan Test 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#003057;--navy2:#004a87;--gold:#c9972b;--gold2:#f0c050;--offwhite:#f4f1eb;--cream:#faf8f3;--text:#1a1a2e;--muted:#6b7280;--correct:#166534;--correct-bg:#dcfce7;--wrong:#991b1b;--wrong-bg:#fee2e2;--border:#d4cfc5}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Source Sans 3',sans-serif;background:var(--offwhite);color:var(--text);min-height:100vh}
+  header{background:var(--navy);position:relative;overflow:hidden}
+  header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 80px)}
+  .header-inner{max-width:1000px;margin:0 auto;padding:36px 32px 30px;position:relative}
+  .company-tag{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px}
+  h1 span{color:var(--gold2)}
+  .header-meta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:16px}
+  .badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);font-size:12px;font-weight:600;letter-spacing:1px;padding:4px 12px;border-radius:20px}
+  .test-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);text-decoration:none;border:1px solid rgba(201,151,43,.4);padding:5px 14px;border-radius:20px;transition:all .2s}
+  .test-link:hover{background:rgba(201,151,43,.15);border-color:var(--gold2)}
+  main{max-width:1000px;margin:0 auto;padding:32px 24px 60px}
+  .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px}
+  .stat-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+  .stat-card .stat-val{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--navy);line-height:1}
+  .stat-card .stat-lbl{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+  .stat-card.pass .stat-val{color:var(--correct)}
+  .stat-card.fail .stat-val{color:var(--wrong)}
+  .section-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--navy)}
+  .candidate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:36px}
+  .cand-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .cand-header{background:var(--navy);padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+  .cand-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff}
+  .cand-status{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:12px}
+  .status-pass{background:var(--correct-bg);color:var(--correct)}
+  .status-fail{background:var(--wrong-bg);color:var(--wrong)}
+  .status-pending{background:rgba(255,255,255,.15);color:rgba(255,255,255,.7)}
+  .cand-body{padding:14px 18px}
+  .cand-score-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .cand-score-big{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--navy)}
+  .cand-pct{font-size:13px;font-weight:600;color:var(--muted)}
+  .mini-bar-bg{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+  .mini-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--navy),var(--navy2));transition:width .6s}
+  .cand-attempts{font-size:12px;color:var(--muted);margin-bottom:4px}
+  .cand-last{font-size:12px;color:var(--muted)}
+  .cand-pending{padding:14px 18px;font-size:13px;color:var(--muted);font-style:italic}
+  .table-wrap{overflow-x:auto;border-radius:12px;box-shadow:0 2px 12px rgba(0,48,87,.08)}
+  table{width:100%;border-collapse:collapse;background:var(--cream);font-size:14px}
+  thead tr{background:var(--navy)}
+  thead th{color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px 16px;text-align:left;white-space:nowrap}
+  tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
+  tbody tr:last-child{border-bottom:none}
+  tbody tr:hover{background:#f0ece3}
+  tbody td{padding:11px 16px;vertical-align:middle}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:12px;white-space:nowrap}
+  .pill-pass{background:var(--correct-bg);color:var(--correct)}
+  .pill-fail{background:var(--wrong-bg);color:var(--wrong)}
+  .score-cell{font-family:'Playfair Display',serif;font-weight:700;font-size:15px}
+  .score-cell.high{color:var(--correct)}
+  .score-cell.low{color:var(--wrong)}
+  .q-dots{display:flex;gap:3px;flex-wrap:wrap}
+  .q-dot{width:16px;height:16px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff}
+  .q-dot.ok{background:var(--correct)}
+  .q-dot.no{background:var(--wrong)}
+  .empty{text-align:center;padding:60px 24px;color:var(--muted)}
+  .empty h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:8px}
+  .empty p{font-size:14px;line-height:1.6}
+  .empty a{color:var(--navy);font-weight:700}
+  .loading{text-align:center;padding:60px 24px;color:var(--muted);font-size:15px}
+  .loading-spinner{width:40px;height:40px;border:4px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .actions-row{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;align-items:center}
+  .btn-refresh{background:var(--navy);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:700;padding:9px 22px;border:none;border-radius:8px;cursor:pointer;transition:background .2s}
+  .btn-refresh:hover{background:var(--navy2)}
+  .last-updated{font-size:12px;color:var(--muted);margin-left:auto}
+  footer{max-width:1000px;margin:0 auto;padding:20px 24px 32px;font-size:12px;color:var(--muted);border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="company-tag">City Mortgage Solutions Group</div>
+    <h1>Master Results Sheet<br><span>Royal London Personal Menu Plan Test 2026</span></h1>
+    <div class="header-meta">
+      <span class="badge">Annual Testing 2026</span>
+      <span class="badge" id="hdr-count">Loading...</span>
+    </div>
+    <a href="MenuPlan_Knowledge_Test.html" class="test-link">&#9654; Go to Test</a>
+  </div>
+</header>
+
+<main>
+  <div id="loading-state" class="loading">
+    <div class="loading-spinner"></div>
+    Fetching results from Google Sheets...
+  </div>
+
+  <div id="empty-state" class="empty" style="display:none">
+    <h2>No results yet</h2>
+    <p>Results will appear here once candidates complete the test.<br>
+       <a href="MenuPlan_Knowledge_Test.html">Open the test</a> to get started.</p>
+  </div>
+
+  <div id="results-content" style="display:none">
+    <div class="summary-grid">
+      <div class="stat-card"><div class="stat-val" id="stat-total">0</div><div class="stat-lbl">Total Attempts</div></div>
+      <div class="stat-card"><div class="stat-val" id="stat-candidates">0</div><div class="stat-lbl">Candidates Tested</div></div>
+      <div class="stat-card pass"><div class="stat-val" id="stat-passed">0</div><div class="stat-lbl">Passed (80%+)</div></div>
+      <div class="stat-card fail"><div class="stat-val" id="stat-failed">0</div><div class="stat-lbl">Failed</div></div>
+      <div class="stat-card"><div class="stat-val" id="stat-avg">—</div><div class="stat-lbl">Average Score</div></div>
+    </div>
+
+    <div class="section-title">Candidate Summary</div>
+    <div class="candidate-grid" id="candidate-grid"></div>
+
+    <div class="section-title">Full Attempt Log</div>
+    <div class="actions-row">
+      <button class="btn-refresh" onclick="loadFromSheet()">&#8635; Refresh</button>
+      <span class="last-updated" id="last-updated"></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>Candidate</th><th>Date &amp; Time</th>
+            <th>Score</th><th>Percentage</th><th>Result</th><th>Q Breakdown</th>
+          </tr>
+        </thead>
+        <tbody id="log-body"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<footer>
+  City Mortgage Solutions Group &nbsp;|&nbsp; Annual Testing 2026
+</footer>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSIAM13oo12XIEoL3elY3i5osShLNiEjmKwQ0aN6J6hSqqARqgR4JVu_Q1VUpTT8ndCA/exec';
+const SHEET_TAB = 'Royal London Menu Plan';
+const TOTAL = 20;
+const CANDIDATES = ["Gary Gavrilovic", "Gary Cox", "Stuart Grimmer", "Lucy Wise", "Roy Archer", "Martin Hunt", "Priyesh Dhanak", "Kulvir Biriah", "Lisa Lee", "Bhupinder Ahir", "Glenn Ratcliff", "Helen Jones", "Leanne Trotman", "Stephen Wright", "Nazir Kaker", "Ganga Pillai", "Sharon Levine", "Ozge Kalay", "Greg Potts", "Jemma Lewis", "Chris Gallagher", "Gary Hazeltine", "Tracy Bowdidge", "Sacchin Ahir", "Zoe Tate", "Gabriela Brito", "Shane Henstock", "Ben Henstock", "Joe Whittaker", "David Turner", "Adam Stiles", "Ross Vasani", "Matthew Turner", "Simon Wilson", "Allison George", "Lauren Benham"];
+
+async function loadFromSheet() {
+  document.getElementById('loading-state').style.display = 'block';
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('results-content').style.display = 'none';
+
+  try {
+    const url = APPS_SCRIPT_URL + '?tab=' + encodeURIComponent(SHEET_TAB);
+    const resp = await fetch(url);
+    const data = await resp.json();
+
+    if (!data.results || data.results.length === 0) {
+      document.getElementById('loading-state').style.display = 'none';
+      document.getElementById('empty-state').style.display = 'block';
+      document.getElementById('hdr-count').textContent = '0 Attempts';
+      return;
+    }
+
+    render(data.results);
+  } catch (err) {
+    document.getElementById('loading-state').innerHTML =
+      '<p style="color:var(--wrong)">Could not load results. Check your internet connection and try refreshing.</p>';
+    console.error(err);
+  }
+}
+
+function render(results) {
+  document.getElementById('loading-state').style.display = 'none';
+  document.getElementById('results-content').style.display = 'block';
+
+  document.getElementById('hdr-count').textContent = results.length + ' Attempt' + (results.length !== 1 ? 's' : '');
+  document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'});
+
+  const passed = results.filter(r => r.passed).length;
+  const uniqueNames = [...new Set(results.map(r => r.name))];
+  const avgPct = Math.round(results.reduce((a, r) => a + r.pct, 0) / results.length);
+  document.getElementById('stat-total').textContent = results.length;
+  document.getElementById('stat-candidates').textContent = uniqueNames.length;
+  document.getElementById('stat-passed').textContent = passed;
+  document.getElementById('stat-failed').textContent = results.length - passed;
+  document.getElementById('stat-avg').textContent = avgPct + '%';
+
+  // Candidate cards
+  const grid = document.getElementById('candidate-grid');
+  grid.innerHTML = '';
+  CANDIDATES.forEach(name => {
+    const mine = results.filter(r => r.name === name);
+    const card = document.createElement('div');
+    card.className = 'cand-card';
+    if (mine.length === 0) {
+      card.innerHTML = `<div class="cand-header"><div class="cand-name">${name}</div><span class="cand-status status-pending">Not taken</span></div><div class="cand-pending">No attempts recorded yet.</div>`;
+    } else {
+      const best = mine.reduce((a, b) => b.pct > a.pct ? b : a);
+      const last = mine[mine.length - 1];
+      card.innerHTML = `
+        <div class="cand-header">
+          <div class="cand-name">${name}</div>
+          <span class="cand-status ${best.passed ? 'status-pass' : 'status-fail'}">${best.passed ? 'Passed' : 'Failed'}</span>
+        </div>
+        <div class="cand-body">
+          <div class="cand-score-row">
+            <div class="cand-score-big">${best.score}/${TOTAL}</div>
+            <div class="cand-pct">Best: ${best.pct}%</div>
+            <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:${best.pct}%"></div></div>
+          </div>
+          <div class="cand-attempts">Attempts: ${mine.length}</div>
+          <div class="cand-last">Last attempt: ${last.timestamp}</div>
+        </div>`;
+    }
+    grid.appendChild(card);
+  });
+
+  // Log table
+  const tbody = document.getElementById('log-body');
+  tbody.innerHTML = '';
+  [...results].reverse().forEach((r, i) => {
+    const tr = document.createElement('tr');
+    const rowNum = results.length - i;
+    const dots = r.answers && r.answers.length
+      ? '<div class="q-dots">' + r.answers.map(a => `<div class="q-dot ${a.correct ? 'ok' : 'no'}" title="Q${a.q}: ${a.correct ? 'Correct' : 'Incorrect'}">${a.q}</div>`).join('') + '</div>'
+      : '<span style="color:var(--muted);font-size:12px">—</span>';
+    tr.innerHTML = `
+      <td style="color:var(--muted);font-size:12px">${rowNum}</td>
+      <td style="font-weight:600">${r.name}</td>
+      <td style="font-size:13px;color:var(--muted)">${r.timestamp}</td>
+      <td class="score-cell ${r.passed ? 'high' : 'low'}">${r.score}/${TOTAL}</td>
+      <td style="font-weight:700;color:${r.passed ? 'var(--correct)' : 'var(--wrong)'}">${r.pct}%</td>
+      <td><span class="pill ${r.passed ? 'pill-pass' : 'pill-fail'}">${r.passed ? 'PASSED' : 'FAILED'}</span></td>
+      <td>${dots}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// Load on page open
+loadFromSheet();
+// Auto-refresh every 30 seconds
+setInterval(loadFromSheet, 30000);
+</script>
+</body>
+</html>

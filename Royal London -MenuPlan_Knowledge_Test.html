@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal London Personal Menu Plan Knowledge Test — City Mortgage Solutions Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#003057;--navy2:#004a87;--gold:#c9972b;--gold2:#f0c050;--offwhite:#f4f1eb;--cream:#faf8f3;--text:#1a1a2e;--muted:#6b7280;--correct:#166534;--correct-bg:#dcfce7;--wrong:#991b1b;--wrong-bg:#fee2e2;--border:#d4cfc5}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Source Sans 3',sans-serif;background:var(--offwhite);color:var(--text);min-height:100vh}
+  header{background:var(--navy);position:relative;overflow:hidden}
+  header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 80px)}
+  .header-inner{max-width:860px;margin:0 auto;padding:36px 32px 30px;position:relative}
+  .company-tag{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,42px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px}
+  h1 span{color:var(--gold2)}
+  .header-meta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:16px}
+  .badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);font-size:12px;font-weight:600;letter-spacing:1px;padding:4px 12px;border-radius:20px}
+  .master-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold2);text-decoration:none;border:1px solid rgba(201,151,43,.4);padding:5px 14px;border-radius:20px;transition:all .2s}
+  .master-link:hover{background:rgba(201,151,43,.15);border-color:var(--gold2)}
+  main{max-width:860px;margin:0 auto;padding:32px 24px 60px}
+  .name-card{background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .name-card label{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;white-space:nowrap}
+  .name-card label span{color:var(--gold2)}
+  .name-select-wrap{flex:1;min-width:220px}
+  .name-select-wrap select{width:100%;padding:10px 36px 10px 16px;font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;background:rgba(255,255,255,.1);border:2px solid rgba(201,151,43,.6);border-radius:8px;color:#fff;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23f0c050' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .name-select-wrap select option{background:var(--navy);color:#fff}
+  .questions-wrap{display:flex;flex-direction:column;gap:16px}
+  .q-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:22px 24px 20px;position:relative;transition:box-shadow .2s}
+  .q-card:hover{box-shadow:0 4px 20px rgba(0,48,87,.08)}
+  .q-card.correct{border-color:var(--correct);background:var(--correct-bg)}
+  .q-card.wrong{border-color:var(--wrong);background:var(--wrong-bg)}
+  .q-number{position:absolute;top:-1px;left:22px;background:var(--navy);color:#fff;font-family:'Playfair Display',serif;font-size:12px;font-weight:700;padding:2px 10px 3px;border-radius:0 0 8px 8px}
+  .q-card.correct .q-number{background:var(--correct)}
+  .q-card.wrong .q-number{background:var(--wrong)}
+  .q-text{font-size:15px;font-weight:600;line-height:1.5;margin:12px 0 14px;padding-top:4px}
+  .q-select-wrap select{width:100%;padding:10px 40px 10px 14px;font-family:'Source Sans 3',sans-serif;font-size:14px;background:#fff;border:2px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23003057' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .q-card.correct .q-select-wrap select{border-color:var(--correct)}
+  .q-card.wrong .q-select-wrap select{border-color:var(--wrong)}
+  .q-feedback{display:none;margin-top:12px;font-size:13px;line-height:1.5;padding:10px 14px;border-radius:7px}
+  .q-card.correct .q-feedback{display:block;background:rgba(22,101,52,.08);color:var(--correct);border-left:3px solid var(--correct)}
+  .q-card.wrong .q-feedback{display:block;background:rgba(153,27,27,.08);color:var(--wrong);border-left:3px solid var(--wrong)}
+  .submit-row{margin-top:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .btn-submit{background:var(--navy);color:#fff;font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:700;padding:13px 36px;border:none;border-radius:9px;cursor:pointer;transition:background .2s,transform .1s}
+  .btn-submit:hover{background:var(--navy2);transform:translateY(-1px)}
+  .btn-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  .btn-reset{background:transparent;color:var(--muted);font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;padding:10px 20px;border:2px solid var(--border);border-radius:9px;cursor:pointer;transition:all .2s;display:none}
+  .btn-reset:hover{border-color:var(--navy);color:var(--navy)}
+  .btn-reset.visible{display:block}
+  .score-box{display:none;margin-top:28px;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,48,87,.15)}
+  .score-box.visible{display:block}
+  .score-header{background:var(--navy);padding:24px 28px;display:flex;align-items:center;gap:20px}
+  .score-circle{width:80px;height:80px;border-radius:50%;border:4px solid var(--gold2);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+  .score-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--gold2);line-height:1}
+  .score-denom{font-size:11px;color:rgba(255,255,255,.5);font-weight:600}
+  .score-info{flex:1}
+  .score-label{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
+  .score-name{font-size:14px;color:rgba(255,255,255,.65)}
+  .score-pct{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold2);text-align:right}
+  .score-body{background:var(--cream);padding:20px 28px;border:1px solid var(--border);border-top:none;border-radius:0 0 14px 14px}
+  .score-bar-bg{height:10px;background:var(--border);border-radius:5px;overflow:hidden;margin:8px 0 4px}
+  .score-bar-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--navy),var(--navy2));transition:width .8s cubic-bezier(.4,0,.2,1)}
+  .score-breakdown{display:flex;gap:10px;font-size:13px;font-weight:600}
+  .score-correct-text{color:var(--correct)}
+  .score-wrong-text{color:var(--wrong)}
+  .score-verdict{margin-top:14px;padding:12px 16px;border-radius:8px;font-size:14px;font-weight:600;line-height:1.5}
+  .verdict-pass{background:var(--correct-bg);color:var(--correct)}
+  .verdict-fail{background:var(--wrong-bg);color:var(--wrong)}
+  .saved-notice{margin-top:12px;padding:10px 14px;background:#eff6ff;border:1px solid #3b82f6;border-radius:8px;font-size:13px;color:#1e40af;font-weight:600;display:none}
+  .warn{margin-top:10px;padding:10px 14px;background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;font-size:13px;color:#92400e;display:none}
+  .warn.visible{display:block}
+  footer{max-width:860px;margin:0 auto;padding:20px 24px 32px;font-size:12px;color:var(--muted);border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="company-tag">City Mortgage Solutions Group</div>
+    <h1>Royal London Personal Menu Plan<br><span>Knowledge Test</span></h1>
+    <div class="header-meta">
+      <span class="badge">Annual Testing 2026</span>
+      <span class="badge">20 Questions</span>
+      <span class="badge">Multiple Choice</span>
+    </div>
+    <a href="MenuPlan_Master.html" class="master-link">&#9654; View Master Results Sheet</a>
+  </div>
+</header>
+
+<main>
+  <div class="name-card">
+    <label><span>&#9654;</span> Candidate Name</label>
+    <div class="name-select-wrap">
+            <select id="candidate-name">
+        <option value="">Select your name...</option>
+        <option value="Gary Gavrilovic">Gary Gavrilovic</option>
+        <option value="Gary Cox">Gary Cox</option>
+        <option value="Stuart Grimmer">Stuart Grimmer</option>
+        <option value="Lucy Wise">Lucy Wise</option>
+        <option value="Roy Archer">Roy Archer</option>
+        <option value="Martin Hunt">Martin Hunt</option>
+        <option value="Priyesh Dhanak">Priyesh Dhanak</option>
+        <option value="Kulvir Biriah">Kulvir Biriah</option>
+        <option value="Lisa Lee">Lisa Lee</option>
+        <option value="Bhupinder Ahir">Bhupinder Ahir</option>
+        <option value="Glenn Ratcliff">Glenn Ratcliff</option>
+        <option value="Helen Jones">Helen Jones</option>
+        <option value="Leanne Trotman">Leanne Trotman</option>
+        <option value="Stephen Wright">Stephen Wright</option>
+        <option value="Nazir Kaker">Nazir Kaker</option>
+        <option value="Ganga Pillai">Ganga Pillai</option>
+        <option value="Sharon Levine">Sharon Levine</option>
+        <option value="Ozge Kalay">Ozge Kalay</option>
+        <option value="Greg Potts">Greg Potts</option>
+        <option value="Jemma Lewis">Jemma Lewis</option>
+        <option value="Chris Gallagher">Chris Gallagher</option>
+        <option value="Gary Hazeltine">Gary Hazeltine</option>
+        <option value="Tracy Bowdidge">Tracy Bowdidge</option>
+        <option value="Sacchin Ahir">Sacchin Ahir</option>
+        <option value="Zoe Tate">Zoe Tate</option>
+        <option value="Gabriela Brito">Gabriela Brito</option>
+        <option value="Shane Henstock">Shane Henstock</option>
+        <option value="Ben Henstock">Ben Henstock</option>
+        <option value="Joe Whittaker">Joe Whittaker</option>
+        <option value="David Turner">David Turner</option>
+        <option value="Adam Stiles">Adam Stiles</option>
+        <option value="Ross Vasani">Ross Vasani</option>
+        <option value="Matthew Turner">Matthew Turner</option>
+        <option value="Simon Wilson">Simon Wilson</option>
+              <option value="Allison George">Allison George</option>
+              <option value="Lauren Benham">Lauren Benham</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="questions-wrap" id="questions-wrap"></div>
+
+  <div class="warn" id="warn-msg">Please select your name and answer all 20 questions before submitting.</div>
+
+  <div class="submit-row">
+    <button class="btn-submit" id="btn-submit">Submit &amp; See Results</button>
+    <button class="btn-reset" id="btn-reset">Start Again</button>
+  </div>
+
+  <div class="score-box" id="score-box">
+    <div class="score-header">
+      <div class="score-circle">
+        <div class="score-num" id="sc-num">0</div>
+        <div class="score-denom">/20</div>
+      </div>
+      <div class="score-info">
+        <div class="score-label" id="sc-label">Your Result</div>
+        <div class="score-name" id="sc-name"></div>
+      </div>
+      <div class="score-pct" id="sc-pct">0%</div>
+    </div>
+    <div class="score-body">
+      <div style="font-size:13px;font-weight:600;color:var(--muted)">Score</div>
+      <div class="score-bar-bg"><div class="score-bar-fill" id="sc-bar" style="width:0%"></div></div>
+      <div class="score-breakdown">
+        <span class="score-correct-text" id="sc-correct"></span>
+        <span>&nbsp;|&nbsp;</span>
+        <span class="score-wrong-text" id="sc-wrong"></span>
+      </div>
+      <div class="score-verdict" id="sc-verdict"></div>
+      <div class="saved-notice" id="saved-notice">&#10003; Your result has been saved to the Master Results Sheet.</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Based on Royal London Personal Menu Plan (GP8P10007) &nbsp;|&nbsp; For Financial Adviser Use Only &nbsp;|&nbsp; City Mortgage Solutions Group &nbsp;|&nbsp; Annual Testing 2026
+</footer>
+
+<script>
+const TOTAL = 20;
+const QUESTIONS = [
+  {
+    q: "1. How many cover types are available on the Royal London Personal Menu Plan?",
+    opts: [
+      "A) 3 — Life Cover, Critical Illness Cover, and Income Protection.",
+      "B) 4 — Life Cover, Critical Illness Cover, Income Protection, and Waiver of Premium.",
+      "C) 5 — Life Cover, Critical Illness Cover, Life or Critical Illness Cover, Income Protection, and Waiver of Premium (Sickness).",
+      "D) 6 — including a standalone Terminal Illness Cover option."
+    ],
+    answer: 2,
+    explanation: "The Personal Menu Plan offers five cover types: Life Cover, Critical Illness Cover, Life or Critical Illness Cover, Income Protection, and Waiver of Premium (Sickness)."
+  },
+  {
+    q: "2. What does 'joint life second event' cover mean?",
+    opts: [
+      "A) Two people are covered and we will pay the first time the event happens.",
+      "B) Only one person is covered but the plan pays twice.",
+      "C) Two people are covered and we will pay the second time the event happens.",
+      "D) The cover pays on the second anniversary of the plan."
+    ],
+    answer: 2,
+    explanation: "Joint life second event means two people are covered and Royal London will pay the second time the qualifying event happens — typically used for inheritance tax planning."
+  },
+  {
+    q: "3. What is the minimum age when cover can start on the Personal Menu Plan?",
+    opts: [
+      "A) 16", "B) 17", "C) 18", "D) 21"
+    ],
+    answer: 2,
+    explanation: "The minimum age when cover starts is 18 across all cover types on the Personal Menu Plan."
+  },
+  {
+    q: "4. What is the minimum monthly premium for the total plan?",
+    opts: [
+      "A) £1 each month.",
+      "B) £5 each month or £60 each year.",
+      "C) £10 each month or £100 each year.",
+      "D) £25 each month."
+    ],
+    answer: 1,
+    explanation: "The minimum monthly premium for the total plan is £5 each month or £60 each year, which includes the plan charge."
+  },
+  {
+    q: "5. What is the minimum amount of cover available on Income Protection?",
+    opts: [
+      "A) £500 each month.",
+      "B) £250 each month.",
+      "C) £100 each month.",
+      "D) £50 each month."
+    ],
+    answer: 2,
+    explanation: "The minimum amount of cover across cover types is £100 each month, which applies to Income Protection paid as a monthly income."
+  },
+  {
+    q: "6. What is the maximum amount of Life Cover available?",
+    opts: [
+      "A) £3,000,000", "B) £1,200,000", "C) £5,000,000", "D) Unlimited"
+    ],
+    answer: 3,
+    explanation: "Life Cover has an unlimited maximum — you can apply for any amount. The £5,000,000, £3,000,000, and £1,200,000 limits apply to other cover types."
+  },
+  {
+    q: "7. What is the maximum amount of Critical Illness Cover available?",
+    opts: [
+      "A) Unlimited", "B) £5,000,000", "C) £3,000,000", "D) £1,200,000"
+    ],
+    answer: 2,
+    explanation: "Critical Illness Cover has a maximum of £5,000,000. Life Cover is unlimited; Life or Critical Illness Cover is £3,000,000; and Income Protection is capped at 65% of pre-tax earnings up to £60,000 and 50% on the remainder."
+  },
+  {
+    q: "8. Income Protection cover is expressed as a percentage of earnings. What is the maximum percentage of pre-tax earnings covered up to £60,000?",
+    opts: [
+      "A) 50%", "B) 55%", "C) 60%", "D) 65%"
+    ],
+    answer: 3,
+    explanation: "Income Protection covers up to 65% of pre-tax earnings up to £60,000, and 50% of pre-tax earnings on the remainder above £60,000."
+  },
+  {
+    q: "9. What does 'guaranteed' mean in the context of premium types on the Plan?",
+    opts: [
+      "A) The premium will reduce each year in line with inflation.",
+      "B) The premium is reviewed every five years and may change.",
+      "C) The premium will not change unless the cover itself changes.",
+      "D) Royal London guarantees to pay all claims without medical evidence."
+    ],
+    answer: 2,
+    explanation: "A guaranteed premium means the premium will not change unless the cover itself changes — giving clients certainty over their outgoings."
+  },
+  {
+    q: "10. What is 'Underwrite Later' on the Personal Menu Plan?",
+    opts: [
+      "A) A permanent facility allowing clients to delay all medical evidence indefinitely.",
+      "B) A temporary facility providing cover for up to six months while Royal London requests medical evidence or further information.",
+      "C) An option that allows the adviser to set the premium before underwriting takes place.",
+      "D) A feature that automatically increases cover without underwriting after five years."
+    ],
+    answer: 1,
+    explanation: "Underwrite Later is a temporary facility providing cover for up to six months from the date the plan started, while Royal London requests medical evidence or further information to fully assess the application."
+  },
+  {
+    q: "11. Which deferred periods are available on Income Protection?",
+    opts: [
+      "A) 1, 4, 8, and 13 weeks.",
+      "B) 4, 8, 13, 26, or 52 weeks.",
+      "C) 13, 26, or 52 weeks only.",
+      "D) 4, 13, or 26 weeks only."
+    ],
+    answer: 1,
+    explanation: "Income Protection on the Personal Menu Plan offers deferred periods of 4, 8, 13, 26, or 52 weeks — the time before Royal London will pay a claim if the client is not working due to illness or injury."
+  },
+  {
+    q: "12. What does Additional Conditions Cover pay, and when is it included?",
+    opts: [
+      "A) It pays 25% of the cover amount up to £20,000 and must be added at extra cost.",
+      "B) It pays 50% of the cover amount up to £35,000 and is included automatically with Critical Illness Cover or Life or Critical Illness Cover.",
+      "C) It pays 100% of the cover amount and is included with all cover types.",
+      "D) It pays £10,000 as a fixed amount and is included with Income Protection."
+    ],
+    answer: 1,
+    explanation: "Additional Conditions Cover is included automatically with Critical Illness Cover or Life or Critical Illness Cover. It pays 50% of the cover amount, up to £35,000, if the person covered is diagnosed with an additional condition."
+  },
+  {
+    q: "13. Under Enhanced Children's Critical Illness Cover, how much is paid following the death of a child?",
+    opts: [
+      "A) £5,000", "B) £10,000", "C) £25,000", "D) £35,000"
+    ],
+    answer: 1,
+    explanation: "Under Enhanced Children's Critical Illness Cover, Royal London will pay £10,000 following the death of a child. Standard Children's Critical Illness Cover pays £5,000 on child death."
+  },
+  {
+    q: "14. What is the Children's Critical Illness Cover conversion option?",
+    opts: [
+      "A) Parents can increase their own cover when a child is born without medical underwriting.",
+      "B) Within six months of the child's cover ending, the child can take out their own Critical Illness Cover without medical underwriting, up to a maximum of £50,000.",
+      "C) The child's cover automatically converts to Life Cover at age 18.",
+      "D) The cover can be transferred to another child if the first child no longer qualifies."
+    ],
+    answer: 1,
+    explanation: "The Children's Critical Illness Cover conversion option means that within six months of the child's cover ending, the child can take out their own Critical Illness Cover without medical underwriting, for the same amount they were covered for, up to £50,000."
+  },
+  {
+    q: "15. What does the Income Protection fracture cover benefit pay?",
+    opts: [
+      "A) A fixed £1,000 per fracture claim.",
+      "B) Up to £4,000 for each claim depending on where the fracture is, with up to two claims in a 12-month period.",
+      "C) 50% of the monthly income benefit for each month the client is recovering from a fracture.",
+      "D) Up to £10,000 for a single fracture claim with no limit on claims per year."
+    ],
+    answer: 1,
+    explanation: "Fracture cover pays up to £4,000 for each claim depending on the location of the fracture. Multiple fractures are covered in the same claim and up to two claims are allowed in a 12-month period."
+  },
+  {
+    q: "16. What is the hospitalisation payment benefit under Income Protection?",
+    opts: [
+      "A) £50 per night for up to 60 nights if hospitalised for more than three consecutive nights.",
+      "B) £100 per night for up to 90 nights if hospitalised for more than six consecutive nights during the deferred period.",
+      "C) A lump sum of £5,000 if the client is hospitalised for more than two weeks.",
+      "D) Full cover equivalent during any period of hospitalisation, regardless of the deferred period."
+    ],
+    answer: 1,
+    explanation: "If a client is hospitalised for more than six consecutive nights during the deferred period, Royal London will pay £100 per night for up to 90 nights during the term of cover."
+  },
+  {
+    q: "17. Which Income Protection deferred period lengths qualify for the back-to-work payment?",
+    opts: [
+      "A) All deferred periods including 4 and 8 weeks.",
+      "B) 4, 8, and 13 weeks only.",
+      "C) 13, 26, and 52 weeks.",
+      "D) 26 and 52 weeks only."
+    ],
+    answer: 2,
+    explanation: "Clients with deferred periods of 13, 26, and 52 weeks receive a back-to-work payment in their first and second months back at work. The amount depends on the cover payment period chosen."
+  },
+  {
+    q: "18. Which of the following life events allows a client to increase cover without medical evidence under the Cover Increase Options?",
+    opts: [
+      "A) Reaching age 40.",
+      "B) Marriage or civil partnership.",
+      "C) A change in GP.",
+      "D) Moving to a different city."
+    ],
+    answer: 1,
+    explanation: "Cover Increase Options allow clients to increase cover without medical evidence on events including marriage or civil partnership, divorce, increase in mortgage, birth or adoption of a child, increase in salary, increase in rent, taking out a first mortgage, and changes relating to inheritance tax."
+  },
+  {
+    q: "19. What is the Joint Life Separation Option on joint life first event plans?",
+    opts: [
+      "A) You can add a second life to a single life plan without underwriting.",
+      "B) You can replace a joint plan with two single plans if you and your partner separate or divorce.",
+      "C) The plan automatically splits into two on the death of the first life.",
+      "D) You can reduce the premium by separating the two lives onto different payment schedules."
+    ],
+    answer: 1,
+    explanation: "The Joint Life Separation Option, included on joint life first event plans used for mortgage protection and joint life second event plans for IHT planning, allows the plan to be replaced with two single plans if the partners separate or divorce."
+  },
+  {
+    q: "20. What does the Gifting Option on joint life second event cover allow?",
+    opts: [
+      "A) The policyholder can gift the plan to a family member free of charge.",
+      "B) You can carve out a proportion of the sum assured onto a separate Gifting plan to cover the reducing IHT liability on a gift.",
+      "C) Royal London will gift an additional 10% of the sum assured on death.",
+      "D) The cover can be gifted to a charity nominated by the policyholder."
+    ],
+    answer: 1,
+    explanation: "The Gifting Option, included automatically on joint life second event covers, allows a proportion of the sum assured to be carved out onto a separate Gifting plan to cover the reducing inheritance tax liability on a gift made during the policyholder's lifetime."
+  }
+];
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSIAM13oo12XIEoL3elY3i5osShLNiEjmKwQ0aN6J6hSqqARqgR4JVu_Q1VUpTT8ndCA/exec';
+const TEST_NAME = 'Royal London Personal Menu Plan';
+const STORAGE_KEY = 'cmsg_menuplan_results_2026';
+function loadResults() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; } }
+function saveResult(e) {
+  // Save locally
+  const all = loadResults();
+  all.push(e);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  // Send to Google Sheet
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...e, test: TEST_NAME })
+  }).catch(err => console.log('Sheet sync failed:', err));
+}
+
+const wrap = document.getElementById('questions-wrap');
+const selects = [];
+QUESTIONS.forEach((q, i) => {
+  const card = document.createElement('div'); card.className = 'q-card'; card.id = `card-${i}`;
+  const num = document.createElement('div'); num.className = 'q-number'; num.textContent = `Q${i + 1}`;
+  const text = document.createElement('div'); text.className = 'q-text'; text.textContent = q.q;
+  const sw = document.createElement('div'); sw.className = 'q-select-wrap';
+  const sel = document.createElement('select');
+  const blank = document.createElement('option'); blank.value = ''; blank.textContent = 'Select your answer...'; sel.appendChild(blank);
+  q.opts.forEach((o, j) => { const opt = document.createElement('option'); opt.value = j; opt.textContent = o; sel.appendChild(opt); });
+  sw.appendChild(sel); selects.push(sel);
+  const fb = document.createElement('div'); fb.className = 'q-feedback'; fb.id = `fb-${i}`;
+  card.appendChild(num); card.appendChild(text); card.appendChild(sw); card.appendChild(fb);
+  wrap.appendChild(card);
+});
+
+document.getElementById('btn-submit').addEventListener('click', () => {
+  const name = document.getElementById('candidate-name').value;
+  const allAnswered = selects.every(s => s.value !== '');
+  const warn = document.getElementById('warn-msg');
+  if (!name || !allAnswered) { warn.classList.add('visible'); return; }
+  warn.classList.remove('visible');
+  let correct = 0;
+  const answerLog = [];
+  QUESTIONS.forEach((q, i) => {
+    const card = document.getElementById(`card-${i}`);
+    const fb = document.getElementById(`fb-${i}`);
+    const chosen = parseInt(selects[i].value);
+    selects[i].disabled = true;
+    const ok = chosen === q.answer;
+    if (ok) correct++;
+    card.classList.add(ok ? 'correct' : 'wrong');
+    fb.innerHTML = ok
+      ? `<strong>Correct!</strong> ${q.explanation}`
+      : `<strong>Incorrect.</strong> The correct answer is <strong>${q.opts[q.answer]}</strong>. ${q.explanation}`;
+    answerLog.push({ q: i + 1, correct: ok, chosen, correctAnswer: q.answer });
+  });
+  document.getElementById('candidate-name').disabled = true;
+  const pct = Math.round((correct / TOTAL) * 100);
+  const passed = pct >= 80;
+  const now = new Date();
+  const timestamp = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  saveResult({ name, score: correct, total: TOTAL, pct, passed, timestamp, answers: answerLog });
+  document.getElementById('sc-num').textContent = correct;
+  document.getElementById('sc-pct').textContent = pct + '%';
+  document.getElementById('sc-name').textContent = 'Candidate: ' + name;
+  document.getElementById('sc-label').textContent = passed ? 'Test Passed' : 'Test Failed';
+  document.getElementById('sc-correct').textContent = correct + ' correct';
+  document.getElementById('sc-wrong').textContent = (TOTAL - correct) + ' incorrect';
+  setTimeout(() => { document.getElementById('sc-bar').style.width = pct + '%'; }, 100);
+  const verdict = document.getElementById('sc-verdict');
+  verdict.className = 'score-verdict ' + (passed ? 'verdict-pass' : 'verdict-fail');
+  verdict.innerHTML = passed
+    ? `Well done, ${name.split(' ')[0]}! You scored ${correct}/${TOTAL} (${pct}%) and have passed the Royal London Personal Menu Plan Knowledge Test 2026.`
+    : `${name.split(' ')[0]}, you scored ${correct}/${TOTAL} (${pct}%). A score of 80% or above is required to pass. Please review the highlighted questions and retake the test.`;
+  document.getElementById('saved-notice').style.display = 'block';
+  document.getElementById('score-box').classList.add('visible');
+  document.getElementById('btn-submit').disabled = true;
+  document.getElementById('btn-reset').classList.add('visible');
+  document.getElementById('score-box').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  document.getElementById('candidate-name').value = '';
+  document.getElementById('candidate-name').disabled = false;
+  selects.forEach((s, i) => {
+    s.value = ''; s.disabled = false;
+    const card = document.getElementById(`card-${i}`);
+    card.classList.remove('correct', 'wrong');
+    document.getElementById(`fb-${i}`).innerHTML = '';
+  });
+  document.getElementById('sc-bar').style.width = '0%';
+  document.getElementById('score-box').classList.remove('visible');
+  document.getElementById('saved-notice').style.display = 'none';
+  document.getElementById('btn-reset').classList.remove('visible');
+  document.getElementById('btn-submit').disabled = false;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
